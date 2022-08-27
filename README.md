@@ -14,3 +14,19 @@ https://redux-toolkit.js.org/tutorials/typescript
 
 "@reduxjs/toolkit": "^1.8.4",
 "react-redux": "^8.0.2",
+
+## 추가사항
+
+posts를 추가해서 createAsyncThunk 를 이용한 비동기 코드관리에 대한 내용을 추가했다
+
+redux toolkit웹사이트에서도 example이 잘 나와있고 생활코딩 강의도 쉽고 좋으니 들어보면 바로 이해될것이다
+
+### 해보다가 알아낸 점
+
+extraReducers안에
+
+state = 으로 상태관리하면 좀 안좋다
+보니까 state = postsStatus.loading()하면 컴포넌트까지 바뀐 상황이 전달이 안되는 것 같다
+
+되도록 state의 세부적인 곳까지 바꿔 주는게 좋은듯
+state.loading = true 하니까 된다

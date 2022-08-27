@@ -59,15 +59,18 @@ const postsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getInitialPosts.pending, (state, action) => {
-      state.loading = true;
-      console.log('loading');
+      //   state.loading = true;
+      state = postsStatus.loading();
+
+      // 중요~! state = 으로 상태관리하면 좀 안좋다
+      // 보니까 state = postsStatus.loading()하면 컴포넌트까지 바뀐 상황이 전달이 안되는 것 같다
+
+      // 되도록 state의 세부적인 곳까지 바꿔 주는게 좋은듯
+      // state.loading = true 하니까 된다
     });
     builder.addCase(getInitialPosts.fulfilled, (state, action) => {
       state.loading = false;
       state.data = action.payload;
-      //   console.log(state);
-      //   console.log(action.payload);
-      console.log('fulfilled');
     });
     builder.addCase(getInitialPosts.rejected, (state, action) => {
       console.log(state);
