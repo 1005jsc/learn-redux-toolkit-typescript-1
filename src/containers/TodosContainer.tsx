@@ -8,6 +8,7 @@ function TodosContainer() {
   // 한 종류의 값만 조회하고 싶으면 그냥 원하는 값만 바로 반환하면 됩니다.
 
   const { todos } = useAppSelector((state) => ({ todos: state.todos }));
+  // const { todos } = useAppSelector((state) => ({ todos: state.todos }));
   const dispatch = useAppDispatch();
   const { addTodo, toggleTodo } = todosActions;
 
